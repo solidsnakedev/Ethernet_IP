@@ -1,0 +1,11 @@
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\bin\Debug\netcoreapp3.0\EthernetIPLibrary.exe
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\bin\Debug\netcoreapp3.0\EthernetIPLibrary.deps.json
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\bin\Debug\netcoreapp3.0\EthernetIPLibrary.runtimeconfig.json
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\bin\Debug\netcoreapp3.0\EthernetIPLibrary.runtimeconfig.dev.json
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\bin\Debug\netcoreapp3.0\EthernetIPLibrary.dll
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\bin\Debug\netcoreapp3.0\EthernetIPLibrary.pdb
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\obj\Debug\netcoreapp3.0\EthernetIPLibrary.csprojAssemblyReference.cache
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\obj\Debug\netcoreapp3.0\EthernetIPLibrary.AssemblyInfoInputs.cache
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\obj\Debug\netcoreapp3.0\EthernetIPLibrary.AssemblyInfo.cs
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\obj\Debug\netcoreapp3.0\EthernetIPLibrary.dll
+C:\Users\JonathanR\source\repos\ConsoleApp3\EthernetIPLibrary\obj\Debug\netcoreapp3.0\EthernetIPLibrary.pdb
