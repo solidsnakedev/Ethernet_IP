@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\JonathanR\\source\\repos\\ConsoleApp3\\EthernetIPLibrary\\EthernetIPLibrary.csproj": {}
+    "C:\\Users\\JonathanR\\Documents\\GitHub\\Ethernet_IP\\EthernetIPLibrary\\EthernetIPLibrary.csproj": {}
   },
   "projects": {
-    "C:\\Users\\JonathanR\\source\\repos\\ConsoleApp3\\EthernetIPLibrary\\EthernetIPLibrary.csproj": {
+    "C:\\Users\\JonathanR\\Documents\\GitHub\\Ethernet_IP\\EthernetIPLibrary\\EthernetIPLibrary.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\JonathanR\\source\\repos\\ConsoleApp3\\EthernetIPLibrary\\EthernetIPLibrary.csproj",
+        "projectUniqueName": "C:\\Users\\JonathanR\\Documents\\GitHub\\Ethernet_IP\\EthernetIPLibrary\\EthernetIPLibrary.csproj",
         "projectName": "EthernetIPLibrary",
-        "projectPath": "C:\\Users\\JonathanR\\source\\repos\\ConsoleApp3\\EthernetIPLibrary\\EthernetIPLibrary.csproj",
+        "projectPath": "C:\\Users\\JonathanR\\Documents\\GitHub\\Ethernet_IP\\EthernetIPLibrary\\EthernetIPLibrary.csproj",
         "packagesPath": "C:\\Users\\JonathanR\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\JonathanR\\source\\repos\\ConsoleApp3\\EthernetIPLibrary\\obj\\",
+        "outputPath": "C:\\Users\\JonathanR\\Documents\\GitHub\\Ethernet_IP\\EthernetIPLibrary\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\JonathanR\\AppData\\Roaming\\NuGet\\NuGet.Config",
