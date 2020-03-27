@@ -22,6 +22,13 @@ namespace EthernetIPLibrary
         /// <summary>
         /// Register Session Request Method
         /// </summary>
+        /// 
+
+        /// TODO
+        /// Create a list of all the commands listed here http://read.pudn.com/downloads166/ebook/763212/EIP-CIP-V2-1.0.pdf
+        /// 2-4.2 Command field
+        /// 
+
         public void RegisterSessionRequest(PLCModel PLC)
         {
             EncapsulationHeaderModel encapsulationHeader = new EncapsulationHeaderModel(RegisterSession,0x0004, 0x00, 0x00, 0x00, 0x00);
