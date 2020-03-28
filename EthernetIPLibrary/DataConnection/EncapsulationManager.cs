@@ -7,7 +7,7 @@ using EthernetIPLibrary.DataConnection;
 namespace EthernetIPLibrary
 {
 
-    class EncapsulationPacket 
+    class EncapsulationManager 
     {
         /// <summary>
         /// List of CIP Commands
@@ -29,6 +29,10 @@ namespace EthernetIPLibrary
         /// 2-4.2 Command field
         /// 
 
+
+
+
+
         public void RegisterSessionRequest(PLCModel PLC)
         {
             EncapsulationHeaderModel encapsulationHeader = new EncapsulationHeaderModel(RegisterSession,0x0004, 0x00, 0x00, 0x00, 0x00);
@@ -39,6 +43,22 @@ namespace EthernetIPLibrary
             byte [] Output = encapsulationProcess.GetBytes(encapsulationHeader, encapsulationData);
 
             //TCP Connection
+            SendTCPPacket(Output);
+
+            
+
+
+
+        }
+        public void UnRegisterSessionRequest()
+        {
+            EncapsulationHeaderModel encapsulation = new EncapsulationHeaderModel(UnRegisterSession, 0x0004, 0x00, 0x00, 0x00, 0x00);
+
+        }
+
+
+        public void SendTCPPacket(byte[] Output) {
+
             try
             {
                 TcpClient client = new TcpClient(PLC.IpAddress, PLC.Port);
@@ -68,13 +88,6 @@ namespace EthernetIPLibrary
             {
                 Console.WriteLine("SocketException: {0}", e);
             }
-
-
-
-        }
-        public void UnRegisterSessionRequest()
-        {
-            EncapsulationHeaderModel encapsulation = new EncapsulationHeaderModel(UnRegisterSession, 0x0004, 0x00, 0x00, 0x00, 0x00);
 
         }
 

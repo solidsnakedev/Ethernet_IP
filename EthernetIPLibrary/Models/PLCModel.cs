@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EthernetIPLibrary
 {
-    class PLCModel
+    public class PLCModel
     {
 
        
