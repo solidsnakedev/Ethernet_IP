@@ -16,7 +16,7 @@ namespace EthernetIPLibrary.DataConnection
 
             public void ConnectToPLC()
             {
-                EncapsulationManager encapsulationManager = new EncapsulationManager();
+                SessionManager encapsulationManager = new SessionManager();
                 encapsulationManager.RegisterSessionRequest(PLCModel);
             }
         

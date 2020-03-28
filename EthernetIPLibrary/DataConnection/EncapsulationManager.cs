@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using System.Net.Sockets;
-using EthernetIPLibrary.DataConnection;
 
-namespace EthernetIPLibrary
+namespace EthernetIPLibrary.DataConnection
 {
-
-    class EncapsulationManager 
+    class EncapsulationManager
     {
+
         /// <summary>
         /// List of CIP Commands
         /// </summary>
@@ -29,68 +27,67 @@ namespace EthernetIPLibrary
         /// 2-4.2 Command field
         /// 
 
-
-
-
-
-        public void RegisterSessionRequest(PLCModel PLC)
+        public byte[] buildRegisterSession()
         {
-            EncapsulationHeaderModel encapsulationHeader = new EncapsulationHeaderModel(RegisterSession,0x0004, 0x00, 0x00, 0x00, 0x00);
-            EncapsulationDataModel encapsulationData = new EncapsulationDataModel(0x01, 0x00);
-            EncapsulationProcess encapsulationProcess = new EncapsulationProcess();
+
+            EncapsulationHeaderModel encapsulationHeader = new EncapsulationHeaderModel(RegisterSession, 0x0004, 0x00, 0x00, 0x00, 0x00);
+            CommandSpecificDataModel encapsulationData = new CommandSpecificDataModel(0x01, 0x00);
+            return GetBytes(encapsulationHeader,encapsulationData);
+
+        }
+
+        public byte[] GetBytes(EncapsulationHeaderModel encapsulationHeader, CommandSpecificDataModel encapsulationData)
+        {
+            List<byte> Data = new List<byte>();
+            //Convert every EncapsulationHeader value into byte array then Add then to a Data List
+            byte[] encapsulationbyteArray = BitConverter.GetBytes(encapsulationHeader.EIPCommand);
+            foreach (var item in encapsulationbyteArray)
+            {
+                Data.Add(item);
+            }
+            encapsulationbyteArray = BitConverter.GetBytes(encapsulationHeader.EIPLength);
+            foreach (var item in encapsulationbyteArray)
+            {
+                Data.Add(item);
+            }
+            encapsulationbyteArray = BitConverter.GetBytes(encapsulationHeader.EIPSessionHandle);
+            foreach (var item in encapsulationbyteArray)
+            {
+                Data.Add(item);
+            }
+
+            encapsulationbyteArray = BitConverter.GetBytes(encapsulationHeader.EIPStatus);
+            foreach (var item in encapsulationbyteArray)
+            {
+                Data.Add(item);
+            }
+            encapsulationbyteArray = BitConverter.GetBytes(encapsulationHeader.EIPContext);
+            foreach (var item in encapsulationbyteArray)
+            {
+                Data.Add(item);
+            }
+            encapsulationbyteArray = BitConverter.GetBytes(encapsulationHeader.EIPOptions);
+            foreach (var item in encapsulationbyteArray)
+            {
+                Data.Add(item);
+            }
+
+            //Convert every EncapsulationData value into byte array then Add then to a Data List
+            encapsulationbyteArray = BitConverter.GetBytes(encapsulationData.ProtocolVersion);
+            foreach (var item in encapsulationbyteArray)
+            {
+                Data.Add(item);
+            }
+            encapsulationbyteArray = BitConverter.GetBytes(encapsulationData.OptionsFlags);
+            foreach (var item in encapsulationbyteArray)
+            {
+                Data.Add(item);
+            }
 
             // Convert Data list to Array so it can be used in TCP Strem
-            byte [] Output = encapsulationProcess.GetBytes(encapsulationHeader, encapsulationData);
-
-            //TCP Connection
-            SendTCPPacket(Output);
-
-            
-
-
-
+            byte[] Output = Data.ToArray();
+            return Output;
         }
-        public void UnRegisterSessionRequest()
-        {
-            EncapsulationHeaderModel encapsulation = new EncapsulationHeaderModel(UnRegisterSession, 0x0004, 0x00, 0x00, 0x00, 0x00);
-
-        }
-
-
-        public void SendTCPPacket(byte[] Output) {
-
-            try
-            {
-                TcpClient client = new TcpClient(PLC.IpAddress, PLC.Port);
-                NetworkStream stream = client.GetStream();
-                stream.Write(Output, 0, Output.Length);
-                Console.WriteLine("Sent: {0}", Output);
-                // Buffer to store the response bytes.
-                byte[] ReceivedData = new Byte[256];
-
-                // String to store the response ASCII representation.
-                String ReceivedDataString = String.Empty;
-
-                // Read the first batch of the TcpServer response bytes.
-                Int32 ReceivedDatabytes = stream.Read(ReceivedData, 0, ReceivedData.Length);
-                ReceivedDataString = System.Text.Encoding.ASCII.GetString(ReceivedData, 0, ReceivedDatabytes);
-                Console.WriteLine("Received: {0}", ReceivedDataString);
-
-                // Close everything.
-                stream.Close();
-                client.Close();
-            }
-            catch (ArgumentNullException e)
-            {
-                Console.WriteLine("ArgumentNullException: {0}", e);
-            }
-            catch (SocketException e)
-            {
-                Console.WriteLine("SocketException: {0}", e);
-            }
-
-        }
-
 
     }
 }

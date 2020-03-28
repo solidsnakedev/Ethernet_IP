@@ -4,7 +4,7 @@ using System.Text;
 
 namespace EthernetIPLibrary
 {
-    public class EncapsulationDataModel
+    public class CommandSpecificDataModel
     {
         /// <summary>
         /// Encapsulation Data
@@ -14,7 +14,7 @@ namespace EthernetIPLibrary
         /// </summary>
         public ushort ProtocolVersion { get; set; }
         public ushort OptionsFlags { get; set; }
-        public EncapsulationDataModel(ushort ProtocolVersion, ushort OptionsFlags)
+        public CommandSpecificDataModel(ushort ProtocolVersion, ushort OptionsFlags)
         {
             this.ProtocolVersion = ProtocolVersion;
             this.OptionsFlags = OptionsFlags;
